@@ -1,0 +1,16 @@
+<div class="login-wrapper">
+    <div class="login">
+        <span class="login-title">
+        Login
+        </span>
+        <input class="email" type="text" name="username" placeholder="Username" [(ngModel)]="username">
+        <input class="email" type="email" name="email" placeholder="Email" [(ngModel)]="email">
+        <input class="password" type="password" name="pass" placeholder="Password" [(ngModel)]="password">
+        <div class="container-login-form-btn">
+            <button class="login-btn" (click)="registration()">
+                Register
+            </button>
+        </div>
+        <a routerLink="/login" class="btn-link">Log In</a>
+    </div>
+</div>

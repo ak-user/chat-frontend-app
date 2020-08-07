@@ -1,0 +1,85 @@
+<div class="container d-flex-column">
+    <app-global-navigation></app-global-navigation>
+    <div class="messenger-layout d-flex">
+        <app-sidebar-group (roomId)="getRoomId($event)" class="sidebar"></app-sidebar-group>
+        <div class="personal-chat-layout d-flex">
+            <div class="person-profile-col" *ngIf="hasShowProfile">
+                <div class="user-avatar d-flex-column align-items-center">
+                    <img>
+                    <h3>Rachel Curtis</h3>
+                    <h2 class="text-muted">New York, USA</h2>
+                </div>
+                <div class="user-contacts">
+                    <h3>Nickname</h3>
+                    <p>SilentGirl</p>
+                    <h3>Email</h3>
+                    <p>rachelcurtisitzprom</p>
+                    <h3>Phone number</h3>
+                    <p>(805)651-9088</p>
+                </div>
+                <div class="user-main-info">
+                    <h3>Date of birth</h3>
+                    <p>January 20, 1990</p>
+                    <h3>Gender</h3>
+                    <p>Female</p>
+                    <h3>Languages</h3>
+                    <p>English, French</p>
+                    <a class="show-profile" href="#">Show full profile</a>
+                </div>
+            </div>
+            <div class="chat-col d-flex-column">
+                <div class="chat-messages-layout">
+                    <div *ngFor="let message of messagesList">
+                        <div class="user-message-layout" *ngIf="message.userId === userId; else anotherData">
+                            <div class="message d-flex justify-content-start align-self-center">
+                                <div class="chat-avatar d-flex align-self-center justify-content-start">
+                                    <img>
+                                </div>
+                                <div class="message-box">
+                                    <div class="message">
+                                        <p>{{ message.text }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="time d-flex justify-content-star">
+                                <div class="back-down"></div>
+                                <span class="time text-muted">{{ message.created }}</span>
+                            </div>
+                        </div>
+                        <ng-template #anotherData>
+                            <div class="received-message-layout" >
+                                <div class="message d-flex justify-content-end align-self-center">
+                                    <div class="message-box">
+                                        <div class="message">
+                                            <p>{{ message.text }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="chat-avatar">
+                                        <img>
+                                    </div>
+                                </div>
+                                <div class="time d-flex justify-content-end">
+                                    <span class="time text-muted">{{ message.created }}</span>
+                                    <div class="back-down">
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                    <div class="anchor"></div>
+                </div>
+                <div class="new-message-area-layout">
+                    <div class="content d-flex">
+                        <div class="paper-clip-layout">
+                            <i class="fas fa-paperclip fa-2x"></i>
+                        </div>
+                        <input type="text" placeholder="Type your message" [(ngModel)]="messageModel">
+                        <div class="send-layout" (click)="putMessage()">
+                            SEND
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

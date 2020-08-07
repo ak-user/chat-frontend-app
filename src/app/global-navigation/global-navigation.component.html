@@ -1,0 +1,19 @@
+<nav class="d-flex justify-content-between navigation">
+    <div class="left-layout ">
+        <ul class="d-flex align-self-center">
+            <li class="active">Messages</li>
+        </ul>
+    </div>
+    <div class="right-layout d-flex align-self-center">
+        <div class="action-icon-layout">
+<!--            <i class="far fa-star circle-icon-big bg-color-green" data-count="10"></i>-->
+<!--            <i class="far fa-bell circle-icon-big bg-color-red" data-count="28"></i>-->
+<!--            <i class="fas fa-question circle-icon-big"></i>-->
+<!--            <i class="fas fa-volleyball-ball circle-icon-big"></i>-->
+        </div>
+        <div class="user-info-layout d-flex align-self-center" *ngIf="user">
+            <h3>{{ user.username}}</h3>
+            <img alt="" />
+        </div>
+    </div>
+</nav>

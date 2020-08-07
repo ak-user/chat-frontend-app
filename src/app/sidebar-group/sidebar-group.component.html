@@ -1,0 +1,65 @@
+<div class="messages-navigation d-flex">
+    <div class="chat-group-list-col">
+        <div class="chat-group-list-layout">
+            <div class="title-layout d-flex">
+                <div class="title align-self-center">
+                    Rooms
+                </div>
+                <div class="icon-layout">
+                    <i class="fas fa-plus circle-icon" (click)="showNewRoomPopup()"></i>
+                </div>
+            </div>
+            <div class="body">
+                <div class="list-item d-flex active" *ngFor="let room of rooms; let i = index">
+                    <div class="list-item-name" (click)="selectRoom(room._id)" [class.selected]="selectRoomId === room._id">
+                        #{{room.name}}
+                    </div>
+                    <div class="list-item-count">
+                        <i class="fas fa-user-plus circle-icon" (click)="showNewConnectionToRoomPopup(room._id)"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div  class="popup-wrapper" *ngIf="hasShowNewRoomPopup">
+    <div class="popup-overlay">
+        <div class="popup">
+            <div class="popup-header">
+                    <span class="title">New Room</span>
+            </div>
+            <div class="popup-content">
+                <input class="popup-text-field" type="text" placeholder="Name" [(ngModel)]="newRoomName"  />
+            </div>
+            <div class="popup-footer">
+                <button class="align-right create-button" (click)="createRoom()" >
+                    Create
+                </button>
+                <button class="align-right cancel-button" (click)="cancel()" >
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div  class="popup-wrapper" *ngIf="hasShowNewConnectionToRoomPopup">
+    <div class="popup-overlay">
+        <div class="popup">
+            <div class="popup-header">
+                <span class="title">Add user to Room</span>
+            </div>
+            <div class="popup-content">
+                <input class="popup-text-field" type="text" placeholder="Email" [(ngModel)]="email"  />
+            </div>
+            <div class="popup-footer">
+                <button class="align-right create-button" (click)="createConnectionToRoom(connectingRoomId)" >
+                    Add
+                </button>
+                <button class="align-right cancel-button" (click)="cancel()" >
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

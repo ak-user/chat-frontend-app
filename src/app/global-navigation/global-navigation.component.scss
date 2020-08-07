@@ -1,0 +1,138 @@
+/*FONtS*/
+@font-face {
+  font-family: Avenir-Roman;
+  src: url('../../../src/assets/fonts/avenir_roman.otf');
+}
+/*END OF FONTS*/
+
+/*HELP CLASSES*/
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.d-flex-column {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.justify-content-start {
+  justify-content: flex-start;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.text-muted {
+  color: #80878f;
+}
+
+.circle-icon {
+  width: 15px;
+  height: 15px;
+  border: solid 1px #40454b;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 15px;
+  padding: 5px;
+  font-size: 10px;
+}
+
+.circle-icon-big {
+  width: 40px;
+  height: 40px;
+  border: solid 1px #40454b;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+  position: relative;
+  &[data-count]:after {
+    content: attr(data-count);
+    display: block;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -3px;
+    right: -1px;
+    line-height: 20px;
+    font-size: 12px;
+  }
+
+  &.bg-color-green::after {
+    background-color: green;
+  }
+
+  &.bg-color-red::after {
+    background-color: red;
+  }
+}
+/*END OF HELP CLASSES*/
+
+/*MAIN DESIGN*/
+html,
+body {
+  height: 100%;
+}
+
+.navigation {
+  padding: 0 35px;
+  flex: 0 0 70px;
+  box-sizing: border-box;
+  background-color: #171b20;
+
+  .left-layout {
+    ul {
+      list-style-type: none;
+      height: 100%;
+
+      li {
+        height: 100%;
+        box-sizing: border-box;
+        padding: 0 10px;
+        line-height: 70px;
+        &.active {
+          border-bottom: solid 2px green;
+        }
+      }
+    }
+  }
+  .right-layout {
+    .action-icon-layout {
+      i {
+        margin: 0 12px;
+      }
+    }
+
+    .user-info-layout {
+      h3 {
+        line-height: 30px;
+        padding-left: 20px;
+        padding-right: 15px;
+      }
+
+      img {
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        background-color: grey;
+      }
+    }
+  }
+}
